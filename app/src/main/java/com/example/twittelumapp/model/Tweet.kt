@@ -1,3 +1,8 @@
 package com.example.twittelumapp.model
 
-data class Tweet (val conteudo: String)
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
+data class Tweet (val conteudo: String,
+                  @PrimaryKey(autoGenerate = true) val id: Int = 0)
