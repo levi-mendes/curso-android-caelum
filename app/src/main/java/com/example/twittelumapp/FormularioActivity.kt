@@ -31,7 +31,7 @@ class FormularioActivity : AppCompatActivity() {
     }
 
     private fun salvar() {
-        val mensagem = campoMensagem.text.toString()
+        val mensagem = et_campo_mensagem.text.toString()
         Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show()
         finish()
     }

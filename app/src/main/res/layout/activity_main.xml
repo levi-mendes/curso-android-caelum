@@ -7,7 +7,7 @@
     tools:context=".FormularioActivity">
 
     <EditText
-        android:id="@+id/campoMensagem"
+        android:id="@+id/et_campo_mensagem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -17,7 +17,7 @@
         android:layout_marginRight="8dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="O que está acontecendo ?"
+        android:hint="@string/hint_campo_mensagem"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

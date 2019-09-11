@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TwittelumApp</string>
+    <string name="titulo_menu_salvar">Salvar</string>
+    <string name="hint_campo_mensagem">O que está acontecendo ?</string>
 </resources>
