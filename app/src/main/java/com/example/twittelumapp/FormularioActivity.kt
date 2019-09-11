@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.example.twittelumapp.model.Tweet
 import kotlinx.android.synthetic.main.activity_main.*
 
 class FormularioActivity : AppCompatActivity() {
@@ -32,7 +33,8 @@ class FormularioActivity : AppCompatActivity() {
 
     private fun salvar() {
         val mensagem = et_campo_mensagem.text.toString()
-        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show()
+        val tweet = Tweet(mensagem)
+        Toast.makeText(this, "${tweet.conteudo}", Toast.LENGTH_SHORT).show()
         finish()
     }
 }
