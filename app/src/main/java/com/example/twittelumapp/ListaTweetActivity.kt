@@ -13,8 +13,10 @@ class ListaTweetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista)
 
-        val array = arrayOf("Tweet 1", "Tweet 2", "Tweet 3", "Tweet 4", "Tweet 5", "Tweet 6")
-        lista.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, array)
+        val database = TweetellumDatabase.getInstance(this)
+        val tweetDao = database.tweetDao()
+        val listaTweets = tweetDao.listar()
+        lista.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listaTweets)
 
         lista.setOnItemClickListener { _, _, position, _ ->
             val item = lista.adapter.getItem(position)
@@ -22,7 +24,6 @@ class ListaTweetActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener {
-            //Snackbar.make(fab, "Adf", Snackbar.LENGTH_LONG).show()
             val intent = Intent(this, FormularioActivity::class.java)
             startActivity(intent)
         }

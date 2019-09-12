@@ -34,8 +34,12 @@ class FormularioActivity : AppCompatActivity() {
     private fun salvar() {
         val mensagem = et_campo_mensagem.text.toString()
         val tweet = Tweet(mensagem)
-        TweetellumDatabase.getInstance(this).tweetDao().salvar(tweet)
-        Toast.makeText(this, "${tweet.conteudo}", Toast.LENGTH_SHORT).show()
+
+        TweetellumDatabase.getInstance(this)
+            .tweetDao()
+            .salvar(tweet)
+
+        Toast.makeText(this, "$tweet", Toast.LENGTH_SHORT).show()
         finish()
     }
 }
