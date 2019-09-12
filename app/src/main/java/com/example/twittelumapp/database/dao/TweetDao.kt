@@ -1,5 +1,6 @@
 package com.example.twittelumapp.database.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -12,5 +13,5 @@ interface TweetDao {
     fun salvar(tweet: Tweet)
 
     @Query("Select * from Tweet")
-    fun listar(): List<Tweet>
+    fun listar(): LiveData<List<Tweet>>
 }
