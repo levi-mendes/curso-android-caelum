@@ -1,9 +1,11 @@
-package com.example.twittelumapp
+package com.example.twittelumapp.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import com.example.twittelumapp.R
+import com.example.twittelumapp.database.TweetellumDatabase
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_lista.*
 

@@ -1,4 +1,4 @@
-package com.example.twittelumapp
+package com.example.twittelumapp.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert

@@ -1,10 +1,12 @@
-package com.example.twittelumapp
+package com.example.twittelumapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.example.twittelumapp.R
+import com.example.twittelumapp.database.TweetellumDatabase
 import com.example.twittelumapp.model.Tweet
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -24,7 +26,7 @@ class FormularioActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_salvar  -> salvar()
+            R.id.menu_salvar -> salvar()
             android.R.id.home -> finish()
         }
 

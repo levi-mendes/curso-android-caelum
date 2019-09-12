@@ -1,9 +1,10 @@
-package com.example.twittelumapp
+package com.example.twittelumapp.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.twittelumapp.database.dao.TweetDao
 import com.example.twittelumapp.model.Tweet
 
 @Database(entities = [Tweet::class], version = 1)
@@ -17,11 +18,16 @@ abstract class TweetellumDatabase : RoomDatabase() {
        private const val DATABASE_NAME = "Tweetelum-db"
 
        fun getInstance(context: Context): TweetellumDatabase {
-           return database ?: criarDatabase(context).also { database = it }
+           return database
+               ?: criarDatabase(
+                   context
+               ).also { database = it }
        }
 
        private fun criarDatabase(context: Context): TweetellumDatabase {
-           return Room.databaseBuilder(context, TweetellumDatabase::class.java, DATABASE_NAME)
+           return Room.databaseBuilder(context, TweetellumDatabase::class.java,
+               DATABASE_NAME
+           )
                .allowMainThreadQueries()
                .build()
        }
