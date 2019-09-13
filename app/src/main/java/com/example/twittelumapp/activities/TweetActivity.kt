@@ -24,7 +24,6 @@ import java.io.File
 class TweetActivity : AppCompatActivity() {
 
     private var caminhoFoto: String? = null
-    private val TIRAR_FOTO = 123
 
     // de que maneira essa fabrica vai ser usada pra criar Viewmodels de outras "ViewMoldels"
     private val viewModel: TweetViewModel by lazy {
@@ -91,5 +90,9 @@ class TweetActivity : AppCompatActivity() {
         val bitmapScaled = Bitmap.createScaledBitmap(bitmap, bitmap.width, bitmap.height, true)
         iv_tweet_foto.setImageBitmap(bitmapScaled)
         iv_tweet_foto.scaleType = ImageView.ScaleType.FIT_XY
+    }
+
+    companion object {
+        private const val TIRAR_FOTO = 123
     }
 }
