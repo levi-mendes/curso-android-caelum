@@ -23,7 +23,19 @@
         </activity>
 
         <activity
-            android:name=".activities.FormularioActivity" />
+            android:name=".activities.TweetActivity" />
+
+        <provider
+            android:authorities="MeuProvider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+
+        </provider>
 
     </application>
 

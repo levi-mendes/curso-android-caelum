@@ -31,7 +31,7 @@ class ListaTweetActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener {
-            val intent = Intent(this, FormularioActivity::class.java)
+            val intent = Intent(this, TweetActivity::class.java)
             startActivity(intent)
         }
     }
