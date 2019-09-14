@@ -2,12 +2,12 @@ package com.example.twittelumapp.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.twittelumapp.R
+import com.example.twittelumapp.adapter.ListaTweetsAdapter
 import com.example.twittelumapp.model.Tweet
 import com.example.twittelumapp.viewmodel.TweetViewModel
 import com.example.twittelumapp.viewmodel.ViewModelFactory
@@ -49,17 +49,8 @@ class ListaTweetActivity : AppCompatActivity() {
     }
 
     private fun observer() : Observer<List<Tweet>> {
-        return Observer { lista.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, it) }
+        return Observer {
+            lista.adapter = ListaTweetsAdapter(it)
+        }
     }
-
-    /*
-    override fun onResume() {
-        super.onResume()
-
-        val database = TweetellumDatabase.getInstance(this)
-        val tweetDao = database.tweetDao()
-        val listaTweets = tweetDao.listar()
-        lista.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listaTweets)
-    }
-     */
 }
