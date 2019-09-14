@@ -16,6 +16,7 @@ import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.twittelumapp.R
 import com.example.twittelumapp.model.Tweet
+import com.example.twittelumapp.util.decodificaParaBase64
 import com.example.twittelumapp.viewmodel.TweetViewModel
 import com.example.twittelumapp.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
@@ -76,19 +77,27 @@ class TweetActivity : AppCompatActivity() {
     }
 
     private fun salvar() {
-        val mensagem = et_campo_mensagem.text.toString()
-        val tweet = Tweet(mensagem)
+
+        val tweet = criaTweet()
 
         viewModel.salvar(tweet)
-
         Toast.makeText(this, "$tweet", Toast.LENGTH_SHORT).show()
         finish()
+    }
+
+    private fun criaTweet(): Tweet {
+        val mensagem = et_campo_mensagem.text.toString()
+        val foto: String? = iv_tweet_foto.tag as String?
+
+        return Tweet(mensagem, foto)
     }
 
     private fun carregaFoto() {
         val bitmap = BitmapFactory.decodeFile(caminhoFoto)
         val bitmapScaled = Bitmap.createScaledBitmap(bitmap, bitmap.width, bitmap.height, true)
         iv_tweet_foto.setImageBitmap(bitmapScaled)
+        val fotoNaBase64 = bitmapScaled.decodificaParaBase64()
+        iv_tweet_foto.tag = fotoNaBase64
         iv_tweet_foto.scaleType = ImageView.ScaleType.FIT_XY
     }
 
